@@ -3,6 +3,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import React from "react";
+import NotifComponent from "@/components/NotifComponent";
 
 export default function Login() {
   async function loginAction(formData: FormData) {
@@ -34,6 +35,7 @@ export default function Login() {
   }
   return (
     <section className="font-poppins h-screen w-full bg-slate-900">
+      <NotifComponent/>
       <div className="flex items-center justify-center h-screen mx-auto max-w-7xl">
         <div className="flex-1">
           <div className="flex flex-wrap">
@@ -58,7 +60,7 @@ export default function Login() {
                   href="/products"
                   className="inline-block px-6 py-2 rounded-lg font-medium bg-green-600 text-gray-50"
                 >
-                  Explore
+                  Explore Products
                 </Link>
               </div>
             </div>
@@ -75,7 +77,6 @@ export default function Login() {
                         type="text"
                         className="w-full py-4 rounded-lg px-7 text-gray-300 bg-gray-800"
                         placeholder="Your email"
-                        required
                       />
                     </div>
                     <div className="relative flex items-center my-8">
@@ -84,7 +85,6 @@ export default function Login() {
                         type="password"
                         className="w-full py-4 rounded-lg px-7 text-gray-300 bg-gray-800"
                         placeholder=" password"
-                        required
                       />
                     </div>
 

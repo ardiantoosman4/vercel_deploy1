@@ -19,12 +19,6 @@ export default function HeroLanding() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
-                href="/"
-                className="px-8 py-3 text-sm font-semibold leading-6 text-gray-600 border-2 border-gray-600 rounded-md hover:text-white hover:bg-slate-950"
-              >
-                Learn more
-              </Link>
-              <Link
                 href="/products"
                 className="rounded-md border border-transparent bg-slate-800 px-8 py-3 text-center font-medium text-gray-200 hover:text-white hover:bg-slate-950"
               >

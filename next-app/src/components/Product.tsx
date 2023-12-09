@@ -7,6 +7,8 @@ import { ObjectId } from "mongodb";
 import { removeWishHandler } from "@/actions/removeWishHandler";
 import { getCookie } from "cookies-next";
 import swal from "sweetalert";
+import { rupiahFormat } from "@/db/helpers/currency";
+
 
 export default function Product({
   data,
@@ -84,7 +86,7 @@ export default function Product({
               Add Wishlist
             </button>
           )}
-          <p className="text-sm text-gray-900 font-semibold">{data.price}</p>
+          <p className="text-sm text-gray-900 font-semibold">{rupiahFormat(data.price)}</p>
         </div>
       </div>
     </div>

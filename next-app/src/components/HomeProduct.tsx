@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function HomeProduct() {
@@ -5,9 +6,9 @@ export default function HomeProduct() {
     <div className="max-w-screen-xl mx-auto w-full p-4 mt-20">
       <ul className="grid gap-4 md:grid-cols-2">
         <li style={{ opacity: 1 }}>
-          <a
+          <Link
             className="group relative block h-80 w-full overflow-hidden rounded-md"
-            href="/search?categories=womens-clothing"
+            href="/products"
           >
             <img
               alt="All Product"
@@ -30,15 +31,15 @@ export default function HomeProduct() {
                 </h2>
               </div>
             </div>
-          </a>
+          </Link>
         </li>
         <li style={{ opacity: 1 }}>
-          <a
+          <Link
             className="group relative block h-80 w-full overflow-hidden rounded-md"
-            href="/search?categories=mens-clothing"
+            href="/products/samsung-s23"
           >
             <img
-              alt="Samsung"
+              alt="Samsung S23"
               decoding="async"
               data-nimg="fill"
               className="transform object-cover transition duration-700 group-hover:scale-110 rounded-2xl"
@@ -54,19 +55,19 @@ export default function HomeProduct() {
             <div className="absolute inset-0 grid place-items-center">
               <div className="rounded-md bg-black bg-opacity-50 p-6">
                 <h2 className="mb-2 border-b-4 text-center text-3xl font-bold text-white md:text-4xl">
-                  Samsung
+                Samsung S23
                 </h2>
               </div>
             </div>
-          </a>
+          </Link>
         </li>
         <li style={{ opacity: 1 }}>
-          <a
+          <Link
             className="group relative block h-80 w-full overflow-hidden rounded-md"
-            href="/search?categories=electronics"
+            href="/products/iphone-13"
           >
             <img
-              alt="Iphone"
+              alt="IPhone 13"
               decoding="async"
               data-nimg="fill"
               className="transform object-cover transition duration-700 group-hover:scale-110 rounded-2xl"
@@ -82,16 +83,16 @@ export default function HomeProduct() {
             <div className="absolute inset-0 grid place-items-center">
               <div className="rounded-md bg-black bg-opacity-50 p-6">
                 <h2 className="mb-2 border-b-4 text-center text-3xl font-bold text-white md:text-4xl">
-                  Iphone
+                iPhone 13
                 </h2>
               </div>
             </div>
-          </a>
+          </Link>
         </li>
         <li style={{ opacity: 1 }}>
-          <a
+          <Link
             className="group relative block h-80 w-full overflow-hidden rounded-md"
-            href="/search?categories=jewelery"
+            href="/products/xiaomi-mi-10t-pro"
           >
             <img
               alt="Xiaomi"
@@ -110,11 +111,11 @@ export default function HomeProduct() {
             <div className="absolute inset-0 grid place-items-center">
               <div className="rounded-md bg-black bg-opacity-50 p-6">
                 <h2 className="mb-2 border-b-4 text-center text-3xl font-bold text-white md:text-4xl">
-                  Xiaomi
+                Xiaomi 10T Pro
                 </h2>
               </div>
             </div>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

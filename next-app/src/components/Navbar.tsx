@@ -14,9 +14,9 @@ export default function Navbar() {
     }
   }, []);
   let activeLinkStyle =
-    "bg-slate-950 text-white rounded-md px-3 py-2 text-sm font-medium";
+    "bg-slate-950 text-white rounded-md px-3 py-2 text-sm font-bold text-lg";
   let normalLinkStyle =
-    "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium";
+    "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-bold text-lg";
   return (
     <nav className="bg-slate-900 relative">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
@@ -138,23 +138,13 @@ export default function Navbar() {
       <div className="sm:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pb-3 pt-2">
           {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-          <Link
-            href="/"
-            className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-            aria-current="page"
-          >
+          <Link href="/" className={normalLinkStyle} aria-current="page">
             Home
           </Link>
-          <Link
-            href="/products"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >
+          <Link href="/products" className={normalLinkStyle}>
             Products
           </Link>
-          <Link
-            href="/login"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >
+          <Link href="/login" className={normalLinkStyle}>
             Login
           </Link>
         </div>

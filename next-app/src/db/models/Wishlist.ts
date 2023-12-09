@@ -13,6 +13,12 @@ export interface WishlistModel {
 
 export async function addWishlist(userId: string, productId: string) {
   try {
+    if (!userId) {
+      throw new Error("userId required");
+    }
+    if (!productId) {
+      throw new Error("productId required");
+    }
     let wish = await db.collection(COLLECTION_NAME).findOne({
       userId: new ObjectId(userId),
       productId: new ObjectId(productId),
@@ -36,6 +42,12 @@ export async function addWishlist(userId: string, productId: string) {
 
 export async function removeWishlist(userId: string, productId: string) {
   try {
+    if (!userId) {
+      throw new Error("userId required");
+    }
+    if (!productId) {
+      throw new Error("productId required");
+    }
     let data = await db.collection(COLLECTION_NAME).findOne({
       userId: new ObjectId(userId),
       productId: new ObjectId(productId),

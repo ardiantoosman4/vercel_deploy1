@@ -15,7 +15,6 @@ export default function Products() {
 
   useEffect(() => {
     getNeedData();
-    console.log(fetchWishlist);
   }, [dataProducts, fetchWishlist]);
 
   async function getNeedData() {
@@ -28,9 +27,9 @@ export default function Products() {
   return (
     <div className="mx-auto my-10 max-w-2xl lg:max-w-7xl">
       <h1 className="font-bold text-3xl">Wishlist Items</h1>
-      <div className="grid grid-cols-1 gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-4 mt-4">
         {dataProducts.length === 0 ? (
-          <div className="flex mt-4">
+          <div className="flex">
             <h3 className="font-semibold">No wishlist item </h3>
             <Link href={"/products"} className="ms-2 font-bold text-blue-700">
               shop now

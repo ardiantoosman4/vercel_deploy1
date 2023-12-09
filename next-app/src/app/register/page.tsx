@@ -1,4 +1,5 @@
 import { URL_DATA } from "@/CONSTANT";
+import NotifComponent from "@/components/NotifComponent";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
@@ -23,7 +24,6 @@ export default function Register() {
       }),
     });
     const res = await response.json();
-    console.log(res, 'register page,"<<<<<<<<<<<<<<');
     if (!response.ok) {
       return redirect("/register?error=" + res.message);
     }
@@ -32,6 +32,7 @@ export default function Register() {
   }
   return (
     <section className="font-poppins h-screen w-full bg-slate-900">
+      <NotifComponent />
       <div className="flex items-center justify-center h-screen mx-auto max-w-7xl">
         <div className="flex-1">
           <div className="flex flex-wrap">
@@ -48,16 +49,14 @@ export default function Register() {
                         type="text"
                         className="w-full py-4 rounded-lg px-7 text-gray-300 bg-gray-800"
                         placeholder="Username"
-                        required
                       />
                     </div>
                     <div className="my-7">
                       <input
                         name="email"
-                        type="email"
+                        type="text"
                         className="w-full py-4 rounded-lg px-7 text-gray-300 bg-gray-800"
                         placeholder="Your email"
-                        required
                       />
                     </div>
 
@@ -67,7 +66,6 @@ export default function Register() {
                         type="password"
                         className="w-full py-4 rounded-lg px-7 text-gray-300 bg-gray-800"
                         placeholder="password"
-                        required
                       />
                     </div>
 
@@ -111,7 +109,7 @@ export default function Register() {
                   href="/products"
                   className="inline-block px-6 py-2 rounded-lg font-medium bg-green-600 text-gray-300"
                 >
-                  Explore
+                  Explore Products
                 </Link>
               </div>
             </div>

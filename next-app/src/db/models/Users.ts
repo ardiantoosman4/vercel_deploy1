@@ -11,6 +11,34 @@ export interface UserModel {
   email: string;
   password: string;
 }
+
+type UserInputModel = Omit<UserModel, "_id">;
+export const registerUser = async (
+  newUser: UserInputModel
+): Promise<UserModel> => {
+  try {
+    if (!newUser.username) {
+      throw new Error("username required");
+    }
+    if (!newUser.email) {
+      throw new Error("email required");
+    }
+    if (!newUser.password) {
+      throw new Error("password required");
+    }
+    const newUserData = {
+      ...newUser,
+      password: hashPassword(newUser.password),
+    };
+    const { insertedId } = await db
+      .collection(COLLECTION_NAME)
+      .insertOne(newUserData);
+    return { ...newUser, _id: insertedId };
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getUser = async (): Promise<UserModel[]> => {
   const users = await db
     .collection(COLLECTION_NAME)
@@ -55,18 +83,4 @@ export const getUserById = async (id: string): Promise<UserModel | null> => {
   } catch (error) {
     throw error;
   }
-};
-
-type UserInputModel = Omit<UserModel, "_id">;
-export const registerUser = async (
-  newUser: UserInputModel
-): Promise<UserModel> => {
-  const newUserData = {
-    ...newUser,
-    password: hashPassword(newUser.password),
-  };
-  const { insertedId } = await db
-    .collection(COLLECTION_NAME)
-    .insertOne(newUserData);
-  return { ...newUser, _id: insertedId };
 };

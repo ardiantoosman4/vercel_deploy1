@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function HomePromo() {
@@ -82,12 +83,12 @@ export default function HomePromo() {
                 </div>
               </div>
 
-              <a
-                href="#"
+              <Link
+                href="/login"
                 className="rounded-md border border-transparent bg-slate-800 px-8 py-3 text-center font-medium text-gray-200 hover:text-white hover:bg-slate-950"
               >
                 Sign in
-              </a>
+              </Link>
             </div>
           </div>
         </div>

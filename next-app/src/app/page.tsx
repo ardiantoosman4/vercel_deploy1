@@ -1,4 +1,5 @@
 import HeroLanding from "@/components/HeroLanding";
+import HomeList from "@/components/HomeList";
 import HomeProduct from "@/components/HomeProduct";
 import HomePromo from "@/components/HomePromo";
 import Navbar from "@/components/Navbar";
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroLanding />
       <HomePromo />
       <HomeProduct />
+      <HomeList />
     </>
   );
 }

@@ -8,15 +8,13 @@ import swal from "sweetalert";
 
 export default function WishButton({ _id }: { _id: string }) {
   const [wishlist, setWishlist] = useState<any[]>([]);
-  const [fetchWishlist, setFetchWishlist] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   useEffect(() => {
     if (getCookie("userId")) {
       setIsLogin(true);
     }
     getNeedData();
-    console.log(fetchWishlist);
-  }, [fetchWishlist]);
+  }, []);
 
   async function getNeedData() {
     let dataWishlist = await getWishlistProductId();
@@ -27,7 +25,11 @@ export default function WishButton({ _id }: { _id: string }) {
     if (isLogin) {
       swal("Success", "Success remove item from wishlist", "success");
       removeWishHandler(_id);
-      setFetchWishlist((prev) => prev + 1);
+      setWishlist((wishlist) => {
+        let newWishlist = wishlist.filter((el) => el._id === _id);
+        console.log(newWishlist);
+        return newWishlist;
+      });
     } else {
       swal("Permision denied", "You need to login to do this action", "error");
     }
@@ -36,7 +38,7 @@ export default function WishButton({ _id }: { _id: string }) {
     if (isLogin) {
       swal("Success", "Success add item to wishlist", "success");
       addWishHandler(_id);
-      setFetchWishlist((prev) => prev + 1);
+      setWishlist((wishlist) => [...wishlist, _id]);
     } else {
       swal("Permision denied", "You need to login to do this action", "error");
     }

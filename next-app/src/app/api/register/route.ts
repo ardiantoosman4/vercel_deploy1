@@ -13,7 +13,9 @@ type inputRegister = {
 };
 
 const RegisterSchema = z.object({
-  username: z.string({ required_error: "username is required" }),
+  username: z
+    .string({ required_error: "username is required" })
+    .min(5, { message: "username length must be 5 or greater" }),
   email: z
     .string({ required_error: "emails is required" })
     .email({ message: "invalid email format" }),
@@ -27,8 +29,10 @@ export async function POST(req: Request) {
     const data: inputRegister = await req.json();
     const registerParsed = RegisterSchema.safeParse(data);
     if (!registerParsed.success) {
-      console.log(registerParsed, "register route <<<<<<<<");
-      throw registerParsed.error;
+      return NextResponse.json(
+        { message: registerParsed.error.errors[0].message },
+        { status: 400 }
+      );
     }
     // email already exist
     let user = await getUserByEmail(data.email);
